@@ -30,7 +30,7 @@ let lastProduct = null; // For showing product details after scan
 // Redirect if not logged in
 auth.onAuthStateChanged(user => {
   if (!user) {
-    window.location = 'index.html';
+    window.location = 'home.html';
   } else {
     loadCreditSales();
     loadSalesRecords();
@@ -41,7 +41,7 @@ auth.onAuthStateChanged(user => {
 
 // Logout button
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  auth.signOut().then(() => window.location = 'index.html');
+  auth.signOut().then(() => window.location = 'home.html');
 });
 
 // Focus barcode input for USB scanner

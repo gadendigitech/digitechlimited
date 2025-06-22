@@ -6,9 +6,9 @@
   <title>Gaden Digitech - Sales Management</title>
   <link rel="stylesheet" href="style.css" />
   <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
   <!-- PDFMake for receipts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
@@ -17,7 +17,7 @@
 </head>
 <body>
   <header>
-    <img src="22.png" alt="Logo" class="logo" />
+    <img src="gaden-logo.png" alt="Logo" class="logo" />
     <h1>Sales Management</h1>
     <button id="logoutBtn">Logout</button>
   </header>
@@ -30,13 +30,8 @@
         <input type="date" id="saleDate" required />
         <input type="text" id="clientName" placeholder="Client Name" required />
         <input type="text" id="clientPhone" placeholder="Client Phone" />
-        <select id="itemSold" required>
-          <option value="">Select Item Sold</option>
-        </select>
-        <input type="text" id="saleBarcode" placeholder="Scan or Enter Barcode" required readonly />
-        <input type="number" id="salePrice" placeholder="Unit Price" min="0" required readonly />
+        <input type="text" id="saleBarcode" placeholder="Scan or Enter Barcode" required />
         <input type="number" id="saleQuantity" placeholder="Quantity" min="1" required />
-        <input type="number" id="saleTotal" placeholder="Total Amount" min="0" required readonly />
         <select id="saleType" required>
           <option value="cash">Cash Sale</option>
           <option value="credit">Credit Sale</option>
@@ -45,35 +40,9 @@
       </form>
     </section>
 
-    <!-- Sales Records Table -->
-    <section id="salesRecordsSection">
-      <h2>Sales Records</h2>
-      <label>Filter by Date: <input type="date" id="filterSalesDate" /></label>
-      <button id="filterSalesBtn">View Sales</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Client</th>
-            <th>Phone</th>
-            <th>Item</th>
-            <th>Barcode</th>
-            <th>Qty</th>
-            <th>Unit Price</th>
-            <th>Total Amount</th>
-            <th>Receipt</th>
-          </tr>
-        </thead>
-        <tbody id="salesRecordsTableBody"></tbody>
-      </table>
-      <button id="printGroupReceiptBtn">Print Group Receipt</button>
-    </section>
-
     <!-- Credit Sales Section -->
     <section id="creditSalesSection">
       <h2>Credit Sales</h2>
-      <label>Filter by Date: <input type="date" id="filterCreditsDate" /></label>
-      <button id="filterCreditsBtn">View Credits</button>
       <table>
         <thead>
           <tr>
@@ -111,7 +80,6 @@
       <p>Scanned Barcode: <span id="scannedBarcode"></span></p>
     </section>
   </main>
-
   <script src="sales.js"></script>
 </body>
 </html>

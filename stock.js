@@ -27,17 +27,8 @@ const db = firebase.firestore();
 let currentCategory = 'All';
 let currentSubcategory = null;
 let editDocId = null;
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Authentication and logout
-  auth.onAuthStateChanged(user => {
-    if (!user) window.location = 'index.html';
-    else loadStock();
-  });
   
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    auth.signOut().then(() => window.location = 'index.html');
-  });
+
 
   // Category buttons
   document.querySelectorAll('.category-btn').forEach(btn => {
